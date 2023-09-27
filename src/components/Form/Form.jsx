@@ -18,6 +18,7 @@ export default class Form extends Component {
         this.setState({
             [e.currentTarget.name]: e.currentTarget.value,
         });
+
         
     }
 
@@ -30,13 +31,20 @@ export default class Form extends Component {
            
         });
 
-        this.props.onSubmit(this.state, nanoid());
+        if (this.props.contacts.some((contact) => contact.name === this.state.name)) { 
+            alert('This contact already exists');
+            return;
+        }
+
+
+        this.props.onSubmit(this.state, nanoid())
+       
     }
 
   render() {
       return (
         <div>
-            <p>Phonebook</p>
+            
             <form className={css.form} onSubmit={this.handleFormSubmit}>
                 <label className={css.label}>Name</label>
                     <input
@@ -57,7 +65,7 @@ export default class Form extends Component {
                   />
                 {/* <label className={css.label}>Message</label>
                 <textarea className={css.textarea} name="message" /> */}
-                <button className={css.button} >Add contact</button>
+                <button className={css.button} type='submit'>Add contact</button>
             </form>   
        </div>
     )
