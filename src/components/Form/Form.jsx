@@ -54,7 +54,7 @@ export default class Form extends Component {
                         onChange={this.handleChange}
                         required
                     />
-                <label className={css.label}>Tel</label>
+                <label className={css.label}>Number</label>
                   <input
                       className={css.input}
                       type="tel"

@@ -1,3 +1,4 @@
+import css from './Filter.module.css'
 import React, { Component } from 'react'
 
 export default class Filter extends Component {
@@ -17,8 +18,9 @@ export default class Filter extends Component {
   render() {
     return (
       <div>
-        <p>Find contacts by name</p>
-            <input
+        <p className={css.filterTittle}>Find contacts by name</p>
+        <input
+          className={css.input}
                 type="text"
                 name="filter"
                 value={this.state.filter}
